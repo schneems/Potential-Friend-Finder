@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PotentialFriendFinder</title>
+  <%= stylesheet_link_tag :all %>
+  <%= javascript_include_tag :defaults %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+  
+  <div id="user_nav">  
+    <% if current_user %>  
+      <%= link_to "Edit profile", edit_user_path(:current) %>  
+      <%= link_to "Logout", logout_path %>  
+    <% else %>  
+      <%= link_to "Register", new_user_path %>  
+      <%= link_to "Log in", login_path %>  
+    <% end %>
+  </div>
+  
+<%= yield %>
+
+</body>
+</html>
