@@ -44,8 +44,9 @@ class AdminsController < ApplicationController
   def seed
     return false if current_admin.blank? || (taxonomy = params[:taxonomy].downcase.to_s).blank?
     Dir[Rails.root.join("public/images/#{taxonomy}/*.jpeg")].each do |file|
+      image = open(file)
       username = file.match(/([^\/]*)\.jpeg$/) && ($1).to_s
-      current_admin.users.create(:username => username, :avatar => open(file))
+      current_admin.users.create(:username => username, :avatar => image)
     end
     redirect_to admin_path(current_admin)
   end

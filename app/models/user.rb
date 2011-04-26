@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base  
-  validates_uniqueness_of :username
+  validates_uniqueness_of :username, :scope => :admin_id
   has_many :friendships, :foreign_key => "user_1_id", :dependent => :destroy
   has_many :friends, :through => :friendships, :source => :user_2, :conditions => "status = 'accepted'"
   
@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
     c.require_password_confirmation = false
     c.validate_password_field = false
     c.ignore_blank_passwords = false
-    c.validate_login_field = false
+    c.validate_login_field = false    
     c.validate_email_field = false
   end
   
