@@ -1,0 +1,9 @@
+<%= render :partial => "explain" %>
+
+
+<% if current_admin %>
+  <br />
+  <div>
+    <%= link_to "Get Started", admin_path(current_admin) %>
+  </div>
+<% end %>

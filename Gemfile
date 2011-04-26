@@ -1,3 +1,4 @@
+# source "http://localhost:8808"
 source 'http://rubygems.org'
 
 gem 'rails', '3.0.5'
@@ -6,6 +7,13 @@ gem 'dynamic_form'
 gem 'authlogic'
 gem 'memcached'
 gem 'redis', '1.0.6'
+gem "paperclip", "~> 2.3"
+gem "rmagick"
+gem "httparty"
+
+gem 'haml'
+
+# gem 'keytar', '0.1.1'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

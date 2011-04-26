@@ -1,0 +1,22 @@
+<% if user = local_assigns[:user] || @user %>
+  <div class="user grid_9 clearfix">
+    <%= link_to image_tag( user.avatar.url(:thumb), :height=> 75, :width => 75, :class => "grid_3"), admin_user_path(current_admin.id, user) %>
+   <div class="name">Name: <strong><%= user.username %></strong></div>
+       <div class="friends">
+       Friends
+      <% user.friends.each do |friend| %>
+        <%= link_to friend.username, admin_user_path(current_admin.id, friend) %>(<%= link_to "-", destroy_arbitrary_friendship_path(user, friend)  %>), 
+      <% end %>
+     </div>
+   <div class="potential_friends">
+     <p class="grid_3 clearfix">
+       Potential Friends: 
+     </p>
+     <div class="grid_7" style="padding-top:5px"><% user.potential_friends.each do |friend| %>
+       <div class = "friend grid_1">
+       <%= link_to image_tag( friend.avatar.url(:thumb), :height => 30, :width => 30), admin_user_path(current_admin.id, friend), :title =>  "#{friend.username}:(#{user.mutual_friends(friend)} mutual friend)" %><br />
+       </div>
+     <% end %></div>
+   </div>
+  </div>
+<% end %>

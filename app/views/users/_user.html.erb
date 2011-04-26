@@ -1,10 +1,17 @@
-<% form_for @user do |form| %>  
-<%= form.error_messages %>  
-<ol class="formList">  
-  <li>  
-    <%= form.label :username, "Username" %>  
-    <%= form.text_field :username %>  
-  </li>  
-</ol>  
-<%= form.submit "Submit" %>  
+<% form_for [@admin, @user], :html => { :multipart => true } do |form| %>
+<%= form.error_messages %>
+<ol class="formList">
+  <li>
+    <%= form.label :username, "Username" %>
+    <%= form.text_field :username %>
+  </li>
+  <li>
+    <%= form.label :avatar, "Avatar" %>
+    
+    <%= form.file_field :avatar %>
+    <p>Or put a url to a photo</p>
+    <%= text_field_tag :url_for_avatar, nil, {:placeholder => "Photo Url Here"} %>
+  </li>
+</ol>
+<%= form.submit "Submit" %>
 <% end %>

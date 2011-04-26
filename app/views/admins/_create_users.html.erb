@@ -1,0 +1,7 @@
+<h2>The world is your oyster...create users</h2>
+
+<%= render :partial => "users/user" %>
+
+<% @users.each do |user| %>
+  <%= render :partial => "users/show", :locals => {:user => user} %>
+<% end %>

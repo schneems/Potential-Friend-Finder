@@ -6,19 +6,22 @@
   <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>
 </head>
-<body>
-  
+<body class="container_24">
+  <p id="notice"><%= notice %></p>
+  <h1>Potential Friend Finder</h1>
+  <%= link_to "home", root_path %>
   <div id="user_nav">  
-    <% if current_user %>  
-      <%= link_to "Edit profile", edit_user_path(:current) %>  
+    <% if current_admin %>  
+      <%= link_to "Edit profile", edit_admin_path(:current) %>  
       <%= link_to "Logout", logout_path %>  
     <% else %>  
-      <%= link_to "Register", new_user_path %>  
+      <%= link_to "Register",   new_admin_path %>  
       <%= link_to "Log in", login_path %>  
     <% end %>
   </div>
-  
+
 <%= yield %>
 
+  <p class="footer">Fork me on Github: <a href="http://github.com/schneems">Github.com/Schneems</a></p>
 </body>
 </html>

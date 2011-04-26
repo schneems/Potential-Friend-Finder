@@ -1,22 +1,37 @@
+img {border:none}
+
+body {
+	  color: black}
+a {text-decoration: none;
+	color: #ADB0F7}
+
+
+.potential_friends {padding:5px}
+.user {padding: 5px}
+img.profile {padding:2px}
+
 div#user_nav { float: right; font-size: 0.9em; }
+* html .clearfix{
+  height: 1%;
+  overflow: visible;
+}
+
+/* float clearing for IE7 */
+*+html .clearfix{
+  min-height: 1%;
+}
+
+/* float clearing for everyone else */
+.clearfix:after{
+  clear: both;
+  content: ".";
+  display: block;
+  height: 0;
+  visibility: hidden;
+  font-size: 0;
+}
 
 
-/*
-  Copyright (c) 2010, Francesc Esplugas Marti
-  Code licensed under the MIT License
-  Updated: 20100618
-
-  Global Styles – (body, paragraphs, lists, etc)
-  Header
-  Page Structure
-  Headings
-  Text Styles
-  Navigation
-  Forms
-  Comments
-  Extras
-
-*/
 
 /* @group Defaults */
 
@@ -35,9 +50,7 @@ em { font-style: italic; }
 dl { margin: 14px 0 20px 0; }
 dt { font-weight: bold; }
 dd { font-size: 18px; margin: 0.25em 0 1em 0; }
-dd p { color: #000; }
 
-p { color: #777; line-height: 1.25em; margin: 1em 0; }
 
 h1 { font-size: 2em; font-weight: normal; }
 h2 { font-weight: bold; }
@@ -49,10 +62,6 @@ li { color: #777; }
 
 /* @group Links */
 
-a,
-a:visited,
-a:link { color: #000; font-weight: normal; }
-a:hover { color: #333; text-decoration: underline!important; }
 
 /* @end */
 

@@ -1,0 +1,16 @@
+<% if @user.present? %>
+  <div class="clearfix"><%= render :partial => "show" %></div>
+  
+  
+  <p>Give <%= @user.username %> some friends!! Click on the pictures or usernames below that you think <%= @user.username %> would be good friends with</p>
+  <div class="make_friends">
+    <% @users.each do |user| %>
+      <div class="grid_3">
+        <%= link_to user.username, create_arbitrary_friendship_path(@user, user) %>
+        
+        <%= link_to image_tag( user.avatar.url(:thumb)), create_arbitrary_friendship_path(@user, user)  %>
+      </div>
+    <% end %>    
+  </div>
+<% end %>
+

@@ -1,0 +1,30 @@
+<p>Congrats, you're an Admin, fill up your social network with users </p>
+<p>
+  <%= render :partial=> "users/user" %>
+</p>
+
+
+
+
+<% if @users.present? %>
+  <div>These are all the users in your social network. Click on one of their profile pics to go to their profile and give them friendships. Once a few of your friends have friends, then we can calculate potential friends. </div>
+ <div class="clearfix">
+  <% @users.each do |user| %>
+    <%= render :partial => "users/show", :locals => {:user => user} %>
+  <% end %>  
+  </div>
+<% else %>
+  Use the above form to create users
+<% end %>
+
+<div>
+  <h2>Add Pre-populated Users</h2>
+  <p>
+    Click on one of these sets to pre-populate your database with users:
+    <%= link_to "Cats", admin_seed_path(current_admin, :taxonomy => "cats") %>
+    <%= link_to "Dogs", admin_seed_path(current_admin, :taxonomy => "dogs") %>
+    <%= link_to "pirates", admin_seed_path(current_admin, :taxonomy => "pirates") %>
+    <%= link_to "ninjas", admin_seed_path(current_admin, :taxonomy => "ninjas") %>
+  </p>
+  
+</div>

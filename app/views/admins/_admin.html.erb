@@ -1,0 +1,14 @@
+<% form_for @admin do |form| %>
+<%= form.error_messages %>
+<ol class="formList">
+  <li>
+    <%= form.label :email, "Email" %>
+    <%= form.text_field :email %>
+  </li>
+  <li>  
+    <%= form.label :password, "Password" %>  
+    <%= form.password_field :password %>  
+  </li>
+</ol>
+<%= form.submit "Submit" %>
+<% end %>

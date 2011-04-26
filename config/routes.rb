@@ -5,16 +5,25 @@ PotentialFriendFinder::Application.routes.draw do
 
   get "users/edit"
   
-  root :to => "users#index"
-  match 'login' => 'user_sessions#new'
-  match 'logout' => 'user_sessions#destroy'
+  root :to => "admins#show"
+  match 'login' => 'admin_sessions#new'
+  match 'logout' => 'admin_sessions#destroy'
   
   
-  resources :friendships
+  resources :admins do 
+    resources :users
+    get :seed
+  end
   
-  resources :user_sessions
   
-  resources :users  
+  # if this was your app you def want to re-think what needs to be POST versus GET
+  match ':user_1/create_arbitrary_friendship/:user_2' => 'friendships#create_arbitrary_friendship', :as => :create_arbitrary_friendship
+  match ':user_1/destroy_arbitrary_friendship/:user_2' => 'friendships#destroy_arbitrary_friendship', :as => :destroy_arbitrary_friendship
+
+    
+  
+  resources :admin_sessions
+  
   
 
   # The priority is based upon order of creation:
