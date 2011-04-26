@@ -8,7 +8,6 @@ gem 'authlogic'
 gem 'memcached'
 gem 'redis', '1.0.6'
 gem "paperclip", "~> 2.3"
-gem "rmagick"
 gem "httparty"
 
 gem 'haml'
