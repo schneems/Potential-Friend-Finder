@@ -22,4 +22,6 @@ Please fork this project, and see if you can come up with improvements to the al
 
 If you want to contribute and you need to reach me, you can find me on the twitters @schneems
 
+Also want to give a shout out to @mattt for clueing me into friends-of-a-friend graph theor...he is awesome. 
+
 Copyright (c) 2011 Schneems
